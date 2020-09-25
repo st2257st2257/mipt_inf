@@ -1,2 +1,3 @@
 # mipt_inf
-only mipt
+only mipt aa
+
