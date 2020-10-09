@@ -90,14 +90,20 @@ b1 = ball(x=100, y=100, r=15, w=1, color = COLORS[0], vx = 2,  vy = 4);
 b2 = ball(x=200, y=150, r=10, w=1, color = COLORS[1],  vx = 7, vy = 1);
 b3 = ball(x=300, y=200, r=20, w=1, color = COLORS[2], vx = 5,  vy = 4);
 
-bc1 = ball(x=200, y=150, r=10, w=1, color = COLORS[3],  vx = -2, vy = 3);
-bc2 = ball(x=100, y=100, r=5, w=1, color = COLORS[4], vx = 2,  vy = -4);
-bc3 = ball(x=200, y=150, r=10, w=1, color = COLORS[5],  vx = -5, vy = 7);
+bc1 = ball(x=200, y=150, r=10, w=2, color = COLORS[3],  vx = -2, vy = 3);
+bc2 = ball(x=100, y=100, r=5, w=2, color = COLORS[4], vx = 2,  vy = -4);
+bc3 = ball(x=200, y=150, r=10, w=2, color = COLORS[5],  vx = -5, vy = 7);
+
+br1 = ball(x=250, y=140, r=14, w=3, color = COLORS[1],  vx = 4, vy = -3);
+br2 = ball(x=140, y=106, r=5, w=3, color = COLORS[3], vx = 6,  vy = 5);
+br3 = ball(x=220, y=150, r=10, w=3, color = COLORS[5],  vx = -8, vy = -1);
+
 
 #b3 = ball(x=randint(screen_h_min+100, screen_h_max-100), y=randint(screen_w_min+100, screen_w_max-100), r=randint(10,15), w=1, color = COLORS[randint(0,5)], vx = randint(0,5),  vy = randint(0,5));
 
 balls.append(b1); balls.append(b2); balls.append(b3);
 balls.append(bc1); balls.append(bc2); balls.append(bc3);
+balls.append(br1); balls.append(br2); balls.append(br3);
 
 
 
@@ -116,7 +122,7 @@ def check(u0,x,y):
 #read data
 def get_users():
     gamers = open("data.txt", 'r')
-    Data_p = gamers.read()[0:-1:].split(';')
+    Data_p = gamers.read().split(';')#[0:-1:].split(';')
     Data = [Data_p[i].split(',')  for i in range(len(Data_p))]
     gamers.close()
     return Data
@@ -132,13 +138,20 @@ def set_users(Data):
 
 #draw form
 def draw(scr, b0):
+    r=b0.r
     if (b0.w == 1):
         circle(scr, b0.color, (b0.x, b0.y), b0.r)
 
     elif (b0.w == 2):
-        pass
+        pygame.draw.polygon(scr, b0.color, [[int(b0.x- (r*3**(1/2)/2))  ,int(b0.y + r/2)],[int(b0.x),int(b0.y - r)],[int(b0.x + (r*3**(1/2)/2)),int(b0.y +r/2) ]], int(r/2))
+
     elif (b0.w == 3):
-        pass
+        pygame.draw.polygon(scr, b0.color,
+                            [[int(b0.x - r/2), int(b0.y - r/2)],
+                             [int(b0.x -r/2), int(b0.y + r/2)],
+                             [int(b0.x +r/2), int(b0.y + r/2)],
+                             [int(b0.x +r/2), int(b0.y - r/2)]], int(r/2))
+
 
     else:
         pass
@@ -291,6 +304,6 @@ while len(balls)!=0:
         ##second_row = [data[1] for i in range(len(data))]
 
 set_users(data)
-ptin("enter value: ")
+print("enter value: ")
 iii = int(input())
 pygame.quit()
