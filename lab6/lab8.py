@@ -169,6 +169,7 @@ def new_game(event=''):
         time.sleep(0.03)
         g1.targetting()
         g1.power_up()
+	balls = balls[0:10:]
     canv.itemconfig(screen1, text='')
     canv.delete(gun)
     root.after(750, new_game)
