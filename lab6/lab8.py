@@ -48,10 +48,18 @@ class ball():
     def move(self):
         self.vy -= grav
         
+	"""
         if ((self.x > (screen_w - self.vx))|(self.x < self.vx)):
             self.vx *= -0.75
         if ((self.y > (screen_h - self.vy))|(self.y < self.vy)):
             self.vy *= -0.75
+	"""
+	if ((self.x > (screen_w))|(self.x < 0)):
+            self.vx *= -0.75
+        if ((self.y > (screen_h))|(self.y < 0)):
+            self.vy *= -0.75
+	
+	
 		
         self.x += self.vx
         self.y += self.vy
