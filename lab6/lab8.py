@@ -64,10 +64,11 @@ class ball():
 
 
 class gun():
-    self.f2_power = 10
-    self.f2_on = 0
-    self.an = 1
-    self.id = canv.create_line(20,450,50,420,width=7) # FIXME: don't know how to set it...
+    def __init__(self):
+        self.f2_power = 10
+        self.f2_on = 0
+        self.an = 1
+        self.id = canv.create_line(20,450,50,420,width=7) # FIXME: don't know how to set it...
 
     def fire2_start(self, event):
         self.f2_on = 1
