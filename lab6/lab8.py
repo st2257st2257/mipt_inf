@@ -8,7 +8,7 @@ import time
 
 screen_w = 800
 screen_h = 600
-grav = -3
+grav = 3
 
 
 
@@ -63,7 +63,7 @@ class ball():
 	"""
         self.x += self.vx
         self.y += self.vy
-        canv.coords(self.id, self.x - self.r, self.y - self.r, self.x + self.r, self.y + self.r)
+        canv.coords(self.id, self.x - self.r, -(self.y - self.r), self.x + self.r, -(self.y + self.r))
         
 
     def hittest(self, obj):
