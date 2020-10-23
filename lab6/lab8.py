@@ -159,6 +159,7 @@ def new_game(event=''):
     t1.live = 1
     while t1.live or balls:
         for b in balls:
+            print("move ball")   
             b.move()
             if b.hittest(t1) and t1.live:
                 t1.live = 0
