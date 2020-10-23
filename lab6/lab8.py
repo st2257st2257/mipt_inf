@@ -8,7 +8,7 @@ import time
 
 screen_w = 800
 screen_h = 600
-grav = 10
+grav = -3
 
 
 
@@ -48,8 +48,8 @@ class ball():
     def move(self):
         self.vy -= grav
 	
-        """
-        	if ((self.x > (screen_w - self.vx))|(self.x < self.vx)):
+        
+        if ((self.x > (screen_w - self.vx))|(self.x < self.vx)):
         	self.vx *= -0.75
         if ((self.y > (screen_h - self.vy))|(self.y < self.vy)):
         	self.vy *= -0.75
@@ -60,7 +60,7 @@ class ball():
             self.vx *= -0.75
         if ((self.y > (screen_h))|(self.y < 0)):
             self.vy *= -0.75
-	
+	"""
         self.x += self.vx
         self.y += self.vy
         canv.coords(self.id, self.x - self.r, self.y - self.r, self.x + self.r, self.y + self.r)
