@@ -63,8 +63,8 @@ class ball():
         if ((self.y > (screen_h))|(self.y < 0)):
             self.vy *= -0.75
 	
-        self.x += self.vx
-        self.y += self.vy
+        self.x += 1#self.vx
+        self.y += 1#self.vy
         
 
     def hittest(self, obj):
