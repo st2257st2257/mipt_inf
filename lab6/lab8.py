@@ -20,7 +20,7 @@ canv.pack(fill=tk.BOTH, expand=1)
 
 
 class ball():
-    def __init__(self, x=40, y=450):
+    def __init__(self, x=60, y=450):
         self.x = x
         self.y = y
         self.r = 10
