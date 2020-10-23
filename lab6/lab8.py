@@ -46,7 +46,7 @@ class ball():
         )
 
     def move(self):
-        vy -= grav
+        self.vy -= grav
         
         if ((self.x > (screen_w - self.vx))|(self.x < self.vx)):
             self.vx *= -0.75
