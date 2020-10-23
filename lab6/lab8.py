@@ -46,6 +46,7 @@ class ball():
         )
 
     def move(self):
+	self.set_coords()
         self.vy -= grav
 
         
@@ -63,8 +64,8 @@ class ball():
         if ((self.y > (screen_h))|(self.y < 0)):
             self.vy *= -0.75
 	
-        self.x += 1#self.vx
-        self.y += 1#self.vy
+        self.x += self.vx
+        self.y += self.vy
         
 
     def hittest(self, obj):
@@ -159,7 +160,6 @@ def new_game(event=''):
     t1.live = 1
     while t1.live or balls:
         for b in balls:
-            print("move ball")   
             b.move()
             if b.hittest(t1) and t1.live:
                 t1.live = 0
