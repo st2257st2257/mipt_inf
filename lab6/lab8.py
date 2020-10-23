@@ -49,7 +49,7 @@ class ball():
         self.vy -= grav
 	
         
-        if ((self.x > (screen_w - 50))|(self.x < 50)):
+        if ((self.x > (screen_w - 20))|(self.x < 50)):
         	self.vx *= -0.75
         if ((self.y > (screen_h - 50))|(self.y < 50)):
         	self.vy *= -0.75
